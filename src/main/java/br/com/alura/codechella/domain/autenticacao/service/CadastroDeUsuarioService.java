@@ -8,6 +8,7 @@ import br.com.alura.codechella.domain.autenticacao.repository.UsuarioRepository;
 import br.com.alura.codechella.domain.autenticacao.vo.DadosCadastroUsuario;
 import br.com.alura.codechella.domain.autenticacao.vo.DadosUsuario;
 import br.com.alura.codechella.domain.email.EnviadorDeEmail;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +19,12 @@ import java.util.stream.Collectors;
 @Service
 public class CadastroDeUsuarioService {
 
-    private final UsuarioRepository usuarioRepository;
-    private final PerfilAcessoRepository perfilAcessoRepository;
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private PerfilAcessoRepository perfilAcessoRepository;
+
     private final PasswordEncoder passwordEncoder;
     private final EnviadorDeEmail enviadorDeEmail;
 
